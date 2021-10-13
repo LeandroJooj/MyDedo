@@ -28,6 +28,8 @@ class Pessoa():
         arco1 = meuArcoAngular.getAngular1(self.fonte,self.nome)
         arco2 = meuArcoAngular.getAngular2(self.fonte,self.nome)
         arcos = [sum(arco1),sum(arco2)]
+        while(not(isinstance(arcos,np.float64))):
+            arcos = sum(arcos)
         return arcos
 
         
@@ -36,7 +38,9 @@ class Pessoa():
         verticilio1 = meuVersticio.getVerticilo1(self.fonte,self.nome)
         verticilio2 = meuVersticio.getVerticilo2(self.fonte,self.nome)
         verticilio3 = meuVersticio.getVerticilo3(self.fonte,self.nome)
-        verticilios = [sum(verticilio1),sum(verticilio2),sum(verticilio3)]
+        verticilios = sum([sum(verticilio1),sum(verticilio2),sum(verticilio3)])
+        while not(isinstance(verticilios,np.float64)):
+            verticilios = sum(verticilios)
         return verticilios
 
     def getPresilhaDireita(self):
@@ -44,14 +48,64 @@ class Pessoa():
         presilha1 = minhaPresilha.getPresilha1(self.fonte,self.nome)
         presilha2 = minhaPresilha.getPresilha2(self.fonte,self.nome)
         presilhas = [sum(presilha1),sum(presilha2)]
+        while(not(isinstance(presilhas,np.float64))):
+            presilhas = sum(presilhas)
         return presilhas
     
     def getPresilhaEsquerda(self):
         minhaPresilha = PresilhaEsquerda(self.fonte,self.nome)
-        presilha1 = minhaPresilha.getPresilha1()
-        presilha2 = minhaPresilha.getPresilha2()
+        presilha1 = minhaPresilha.getPresilha1(self.fonte,self.nome)
+        presilha2 = minhaPresilha.getPresilha2(self.fonte,self.nome)
         presilhas = [sum(presilha1),sum(presilha2)]
+        while(not(isinstance(presilhas,np.float64))):
+            presilhas = sum(presilhas)
         return presilhas
 
-#geraldo = Pessoa("Impressao_digital.jpg","Geraldo")
-#print(geraldo.getVerticios())
+
+
+geraldo = Pessoa("digital9.jpg","Geraldo")
+print("Geraldo: ",geraldo.getArcoAngular())
+print("Geraldo: ",geraldo.getVerticios())
+print("Geraldo: ",geraldo.getPresilhaDireita())
+print("Geraldo: ",geraldo.getPresilhaEsquerda())
+
+print("--------------------------------")
+kevin = Pessoa("digital13.jpg","Kevin")
+print("Kevin: ",kevin.getArcoAngular())
+print("Kevin: ",kevin.getVerticios())
+print("Kevin: ",kevin.getPresilhaDireita())
+print("Kevin: ",kevin.getPresilhaEsquerda())
+
+
+print("--------------------------------")
+carlos = Pessoa("digital14.jpg","Carlos")
+print("Carlos: ",carlos.getArcoAngular())
+print("Carlos: ",carlos.getVerticios())
+print("Carlos: ",carlos.getPresilhaDireita())
+print("Carlos: ",carlos.getPresilhaEsquerda())
+
+
+print("--------------------------------")
+mark = Pessoa("digital15.jpg","Mark")
+print("Mark: ",mark.getArcoAngular())
+print("Mark: ",mark.getVerticios())
+print("Mark: ",mark.getPresilhaDireita())
+print("Mark: ",mark.getPresilhaEsquerda())
+
+print("--------------------------------")
+indiana = Pessoa("digital16.jpg","Indiana")
+print("Indiana: ",indiana.getArcoAngular())
+print("Indiana: ",indiana.getVerticios())
+print("Indiana: ",indiana.getPresilhaDireita())
+print("Indiana: ",indiana.getPresilhaEsquerda())
+
+
+print("--------------------------------")
+george = Pessoa("Impressao_digital.jpg","George")
+print("George: ",george.getArcoAngular())
+print("George: ",george.getVerticios())
+print("George: ",george.getPresilhaDireita())
+print("George: ",george.getPresilhaEsquerda())
+
+
+

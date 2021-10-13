@@ -1,6 +1,9 @@
 import PIL
 import numpy as np
+import math
 from PIL import Image
+from Shaper import shaper
+np.seterr(divide='ignore', invalid='ignore')
 
 class Versticilos():
     def __init__(self, fonte,nome):
@@ -21,11 +24,16 @@ class Versticilos():
 
     def getVerticilo1(self,fonte,nome):
         img = Image.open("imagens/"+fonte)
+        img.convert("L")
+        #print(img.mode)        
         pixels = img.crop((200,200,340,340))
         pixels = np.asarray(pixels)
-        pixels = pixels.astype("float32")
-        pixels /= pixels.max()
-        # pyplot.imshow(pixels, cmap="binary")
+        tam = pixels.size
+        y = shaper(tam)
+        x =round(tam/y)
+        pixels.reshape(x,y)
+        #print(pixels.shape)
+        pixels = pixels.astype("float32")        
         pixels = np.around(pixels)
         return sum(pixels)
 
@@ -33,9 +41,11 @@ class Versticilos():
         img = Image.open("imagens/"+fonte)
         pixels = img.crop((400,500,500,650))
         pixels = np.asarray(pixels)
+        tam = pixels.size
+        y = shaper(tam)
+        x =round(tam/y)
+        pixels.reshape(x,y)
         pixels = pixels.astype("float32")
-        pixels /= pixels.max()
-        #pyplot.imshow(pixels, cmap="binary")
         pixels = np.around(pixels)
         return sum(pixels)
 
@@ -43,8 +53,10 @@ class Versticilos():
         img = Image.open("imagens/"+fonte)
         pixels = img.crop((150,500,250,650))
         pixels = np.asarray(pixels)
+        tam = pixels.size
+        y = shaper(tam)
+        x =round(tam/y)
+        pixels.reshape(x,y)
         pixels = pixels.astype("float32")
-        pixels /= pixels.max()
-        #pyplot.imshow(img, cmap="binary")
         pixels = np.around(pixels)
         return sum(pixels)
