@@ -32,7 +32,6 @@ class PresilhaEsquerda():
         pixels.reshape(x,y)
         
         pixels = pixels.astype("float32")
-        pixels /= pixels.max()
         #pyplot.imshow(pixels, cmap="binary")
         pixels = np.around(pixels)
         return sum(pixels)
@@ -48,7 +47,6 @@ class PresilhaEsquerda():
         pixels.reshape(x,y)
 
         pixels = pixels.astype("float32")
-        pixels /= pixels.max()
         #pyplot.imshow(pixels, cmap="binary")
         pixels = np.around(pixels)
         return sum(pixels)
